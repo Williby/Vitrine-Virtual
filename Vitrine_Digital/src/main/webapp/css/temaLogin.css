@@ -1,0 +1,63 @@
+/* Basic Grey */
+.basic-grey {
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    background: #EEE;
+    padding: 20px 30px 20px 30px;
+    font: 12px Georgia, "Times New Roman", Times, serif;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    border:1px solid #DADADA;
+    margin-top: 140px;
+    height: 220px;
+    border-radius: 5px;
+}
+.basic-grey h1 {
+    font: 25px Georgia, "Times New Roman", Times, serif;
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom: 1px solid #DADADA;
+    margin: -10px -30px 30px -30px;
+    color: #888;
+}
+.basic-grey h1>span {
+    display: block;
+    font-size: 22px;
+
+}
+.basic-grey label {
+
+    display: block;
+    margin:0px 40px 4px;
+
+
+}
+.basic-grey label>span {
+    float: left;
+    width: 80px;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+    color: #888;
+    font-size: 17px;
+}
+.basic-grey input[type="text"], .basic-grey input[type="password"]{
+    width: 50%;
+    
+}
+
+
+.basic-grey .button {
+    background: #3c883c  ;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    margin-top: 10px;
+    margin-left: 30px;
+    border-radius: 5px;
+
+}
+.basic-grey .button:hover {
+    background: #245224 
+}
