@@ -23,9 +23,9 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.ValidationMessage;
+import br.com.modelo.Usuario;
 import br.com.vitrinedigital.facade.VDigitalFacade;
 import br.com.vitrinedigital.interceptor.UsuarioWeb;
-import br.com.vitrinedigital.modelo.Administrador;
 
 /**
  * This class will be responsible to login/logout users.
@@ -41,11 +41,11 @@ public class HomeController {
 
 	private Result result;
 	private Validator validator;
-	private VDigitalFacade facade;
+	private VDigitalFacade vdfacade;
 	private final UsuarioWeb userinfo;
 	
-	public HomeController(VDigitalFacade facade,Result result,Validator validator,UsuarioWeb userinfo) {
-		this.facade = facade;
+	public HomeController(VDigitalFacade vdfacade,Result result,Validator validator,UsuarioWeb userinfo) {
+		this.vdfacade = vdfacade;
 		this.validator = validator;
 		this.result = result;
 		this.userinfo = userinfo;
@@ -58,17 +58,25 @@ public class HomeController {
 	}
 	
 	@Post("/login")
-	public void login(Administrador adm){
+	public void login(Usuario usuario){
 		
 		try{
-			facade.logarADM(adm);
+			vdfacade.logarUsr(usuario);
 		}catch(Exception e){
 			validator.add(new ValidationMessage(e.getMessage(), "usuario"));
 		}
 		validator.onErrorUsePageOf(this).loginForm();
+		redirecionar(usuario);
 		//this.userinfo.login(adm);
-		result.redirectTo(AdministradorController.class).home();
 	
+	}
+	private void redirecionar(Usuario usuario){
+		if(usuario.getNivel()=="1"){
+			result.redirectTo(AdministradorController.class).home();
+		}
+		else if(usuario.getNivel()=="2"){
+			result.redirectTo(EstabelecimentoController.class).home();
+		}
 	}
 	
 	@Path("/logout")

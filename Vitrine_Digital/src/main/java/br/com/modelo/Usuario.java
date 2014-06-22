@@ -1,4 +1,4 @@
-package br.com.vitrinedigital.modelo;
+package br.com.modelo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,18 +7,30 @@ import javax.persistence.Id;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.SessionScoped;
 
+
 @Entity
 @Component
 @SessionScoped
-public class Administrador {
+public class Usuario{
+	
+	
 	
 	@Id
 	@GeneratedValue
 	private int id;
+	
 	private String login;
 	private String senha;
 	private String nome;
+	private String nivel;
 	
+	
+	public String getNivel() {
+		return nivel;
+	}
+	public void setNivel(String nivel) {
+		this.nivel = nivel;
+	}
 	
 	public int getId() {
 		return id;

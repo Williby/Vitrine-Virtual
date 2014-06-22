@@ -3,7 +3,7 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbhypermachine</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbvitrinedigital</property>
 		<property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">jabes</property>
@@ -13,13 +13,15 @@
 		<property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
 
     
-    <property name="hibernate.show_sql">true</property>
+    
     <property name="hibernate.format_sql">true</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
+    
 		
 		<!-- entidades -->
 		
-		<mapping class="br.com.modelo.Administrador" />
+		<mapping class="br.com.modelo.Usuario" />
+		<mapping class="br.com.modelo.Estabelecimento"/>
+		
 	</session-factory>
 	
 </hibernate-configuration>

@@ -2,19 +2,19 @@ package br.com.vitrinedigital.interceptor;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.SessionScoped;
-import br.com.vitrinedigital.modelo.Administrador;
+import br.com.modelo.Usuario;
 
 @Component
 @SessionScoped
 public class UsuarioWeb {
 	
-	private static Administrador logado;
+	private static Usuario logado;
 	
-	public Administrador getUser(){
+	public Usuario getUser(){
 		return logado;
 	}
 	
-	public void login(Administrador usuario){
+	public void login(Usuario usuario){
 		logado = usuario;
 		
 	}

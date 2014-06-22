@@ -1,50 +1,27 @@
 package br.com.vitrinedigital.controller;
 
-import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Path;
-import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.vitrinedigital.facade.VDigitalFacade;
 
 @Resource
-public class AdministradorController {
-	
-	
+public class EstabelecimentoController {
 	
 	private Result result;
 	private Validator validator;
 	private VDigitalFacade facade;
 	
 	
-	public AdministradorController(VDigitalFacade facade,Result result,Validator validator) {
+	public EstabelecimentoController(VDigitalFacade facade,Result result,Validator validator) {
 		this.facade = facade;
 		this.validator = validator;
 		this.result = result;
 		
 	}
 	
-	@Path("/")
-	@Get
 	public void home(){
 		
 	}
-	@Path("/estabelecimento")
-	@Post
-	public void cadastroEstabelecimento(){
-		
-	}
-	
-	
-	
-	
 
 }
-
-	
-	
-	
-	
-
-
