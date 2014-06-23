@@ -3,7 +3,7 @@
 <body>
 <div class="container">
 <form action="" method="post" class="basic-grey">
-    <h1>Por favor, forneÃ§a seus dados:
+    <h1>Por favor, forneça seus dados:
         
     </h1>
     <label>

@@ -18,7 +18,7 @@ public class Estabelecimento {
 	
 	private String nome;
 	private String rua;
-	private String compemento;
+	private String complemento;
 	private String bairro;
 	private String cidade;
 	private String email;
@@ -28,9 +28,7 @@ public class Estabelecimento {
     @JoinColumn(name = "usuario")
 	private Usuario usuario;
 	
-	public Estabelecimento() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	public String getCnpj() {
 		return cnpj;
 	}
@@ -49,11 +47,11 @@ public class Estabelecimento {
 	public void setRua(String rua) {
 		this.rua = rua;
 	}
-	public String getCompemento() {
-		return compemento;
+	public String getComplemento() {
+		return complemento;
 	}
-	public void setCompemento(String compemento) {
-		this.compemento = compemento;
+	public void setComplemento(String compemento) {
+		this.complemento = compemento;
 	}
 	public String getBairro() {
 		return bairro;
