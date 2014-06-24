@@ -23,32 +23,45 @@ public class VDigitalFacade {
 
 	}
 
-	public void logarUsr(Usuario adm) throws Exception {
+	public void logarUsr(Usuario adm) throws VDigitalException {
 		Usuario ad = usrDao.carregar(adm);
 		if (ad == null) {
-			throw new Exception("Login ou senha invalidos");
+			throw new VDigitalException("Login ou senha invalidos");
 		}
 		this.userinfo.login(ad);
 	}
 
-	public void cadastrarUsr(Usuario adm) throws Exception {
-		if (usrDao.carregar(adm) != null) {
-			throw new Exception("Administrador ja Cadastrado com esse Login!!");
+	public void cadastrarUsr(Usuario usr) throws VDigitalException {
+		if (usrDao.carregar(usr) != null) {
+			throw new VDigitalException("Administrador ja Cadastrado com esse Login!!");
 		}
-		usrDao.salvar(adm);
+		usrDao.salvar(usr);
 	}
 	public void deletarUsr(Usuario usr){
 		usrDao.deletar(usr);
 	}
+	public Usuario carregarUsr(int id){
+		return usrDao.carregar(id);
+	}
+	
+	public List<Usuario> listaUsuario() {
+		// TODO Auto-generated method stub
+		return usrDao.listarTudo();
+	}
 	
 	
 	// Metodos do Estabelecimento
-	
-	public void cadastrarEstabelecimento(Estabelecimento estab) throws Exception {
+	public void existeEstabelecimento(){
+		
+	}
+	public void cadastrarEstabelecimento(Estabelecimento estab) throws VDigitalException {
 		if (estabDao.carregar(estab) != null) {
-			throw new Exception("Administrador ja Cadastrado com esse Login!!");
+			throw new VDigitalException("Estabelecimento ja esta regitrado em nosso Sistema com esse CNPJ!");
 		}
 		estabDao.salvar(estab);
+	}
+	public Estabelecimento carregarEstab(int id){
+		return estabDao.carregar(id);
 	}
 	public void deletarEstabelecimento(Estabelecimento estab){
 		estabDao.deletar(estab);
@@ -56,6 +69,8 @@ public class VDigitalFacade {
 	public List<Estabelecimento> listaEstabelecimento(){
 		return estabDao.listarTudo();
 	}
+
+	
 	
 	
 	

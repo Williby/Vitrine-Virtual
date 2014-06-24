@@ -1,9 +1,12 @@
 package br.com.vitrinedigital.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.caelum.vraptor.ioc.Component;
+import br.com.modelo.Estabelecimento;
 import br.com.modelo.Usuario;
 
 @Component
@@ -34,6 +37,9 @@ public class UsuarioDao {
 	}
 	public void deletar(Usuario usr) {
 		session.delete(usr);
+	}
+	public List<Usuario> listarTudo() {
+		return session.createCriteria(Usuario.class).list();
 	}
 
 }

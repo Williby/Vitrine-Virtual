@@ -1,14 +1,21 @@
 package br.com.vitrinedigital.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.validator.ValidationMessage;
+import br.com.caelum.vraptor.view.Results;
 import br.com.modelo.Estabelecimento;
+import br.com.modelo.Usuario;
+import br.com.vitrinedigital.facade.VDigitalException;
 import br.com.vitrinedigital.facade.VDigitalFacade;
 
 @Resource
@@ -28,31 +35,45 @@ public class AdministradorController {
 		
 	}
 	
-	@Path("/")
-	@Get
-	public void home(){
-		
-	}
-	@Path("/estabelecimento")
+	public void home(){}
 	
-	public void cadastroEstabelecimento(){
-		ArrayList<Estabelecimento> lit = (ArrayList<Estabelecimento>) facade.listaEstabelecimento();
-		for(Estabelecimento e:lit){
-			System.out.println("Estabelecimento: "+e.getNome()+
-					"  Usuario: "+e.getUsuario().getNome());
+	@Get("/usuarios/novo")
+	public void formulario(){}
+	
+	@Get("/usuarios/{id}")
+	public Usuario editar(int id){return null;}
+	
+	@Put("/usuarios/{usuario.id}")
+	public void alterar(){}
+	
+		
+	@Post("/usuarios")
+	public void adicionar(Usuario usr) {
+		//Metodo para Cadastrar um Novo Estabelecimento!!!
+		try{
+			facade.cadastrarUsr(usr);
+		}catch(VDigitalException vde){
+			validator.add(new ValidationMessage(vde.getMessage(), "usr"));
+
 		}
-		
+		 this.result.redirectTo(this).lista();
 	}
 	
-	@Path("/formulario")
-	
-	public void formulario(){
-		
-	}
-	@Path("/lista")
-	
+	@Get("/usuarios")
 	public void lista(){
-		
+		//Metodo que retorna uma lista de Estabelecimento!!!
+
+		List<Usuario> listusuario = facade.listaUsuario();
+		result.use(Results.json()).from(listusuario).recursive().serialize();
+	}
+	
+	
+	
+	@Delete("/usuarios/{id}")
+	public void remove(int id){
+		//Metodo para deletar um  Estabelecimento!!!
+
+		facade.deletarUsr(facade.carregarUsr(id));
 	}
 	
 	
