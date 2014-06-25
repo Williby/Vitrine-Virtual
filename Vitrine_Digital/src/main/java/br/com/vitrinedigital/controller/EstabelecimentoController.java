@@ -13,6 +13,7 @@ import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.com.caelum.vraptor.view.Results;
 import br.com.modelo.Estabelecimento;
+import br.com.modelo.Usuario;
 import br.com.vitrinedigital.facade.VDigitalException;
 import br.com.vitrinedigital.facade.VDigitalFacade;
 
@@ -43,9 +44,12 @@ public class EstabelecimentoController {
 	public void alterar(){}
 	
 	@Post("/estabelecimentos")
-	public void adciona(final Estabelecimento estabelecimento){
+	public void adciona(final Estabelecimento estabelecimento,int id){
+		
 		//Metodo para Cadastrar um Novo Estabelecimento!!!
 		try{
+			Usuario usr = facade.carregarUsr(id);
+			estabelecimento.setUsuario(usr);
 			facade.cadastrarEstabelecimento(estabelecimento);
 		}catch(VDigitalException vde){
 			validator.add(new ValidationMessage(vde.getMessage(), "estabelecimento"));

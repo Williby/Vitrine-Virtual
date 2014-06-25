@@ -26,9 +26,9 @@ public class EstabelecimentoDao {
 		return (Estabelecimento) this.session.load(Estabelecimento.class, id);
 	}
 	public void salvar(Estabelecimento adm) {
-		Transaction tx =  session.beginTransaction();
+		//Transaction tx =  session.beginTransaction();
 		session.save(adm);
-		tx.commit();
+		//tx.commit();
 	}
 	public void deletar(Estabelecimento estabelecimento) {
 		session.delete(estabelecimento);

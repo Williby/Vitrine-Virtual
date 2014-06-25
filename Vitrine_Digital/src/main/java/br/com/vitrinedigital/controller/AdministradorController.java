@@ -48,10 +48,10 @@ public class AdministradorController {
 	
 		
 	@Post("/usuarios")
-	public void adicionar(Usuario usr) {
+	public void adicionar(Usuario usuario) {
 		//Metodo para Cadastrar um Novo Estabelecimento!!!
 		try{
-			facade.cadastrarUsr(usr);
+			facade.cadastrarUsr(usuario);
 		}catch(VDigitalException vde){
 			validator.add(new ValidationMessage(vde.getMessage(), "usr"));
 

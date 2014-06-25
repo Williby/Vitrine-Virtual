@@ -25,7 +25,7 @@ public class Estabelecimento {
 	
 	// Usuario que vai fazer as operacoes no estabelecimento
 	@ManyToOne
-    @JoinColumn(name = "usuario")
+    @JoinColumn(name = "Usuario")
 	private Usuario usuario;
 	
 	

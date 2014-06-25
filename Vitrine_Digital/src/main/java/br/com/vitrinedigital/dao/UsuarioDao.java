@@ -27,7 +27,7 @@ public class UsuarioDao {
 				.add(Restrictions.eq("senha", usr.getSenha()))
 				.uniqueResult();
 	}
-	public Usuario carregar(long id) {
+	public Usuario carregar(int id) {
 		return (Usuario) this.session.load(Usuario.class, id);
 	}
 	public void salvar(Usuario usr) {
