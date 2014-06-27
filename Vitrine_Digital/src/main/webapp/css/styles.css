@@ -1,121 +1,207 @@
-
-#cssmenu {
-  font-family: 'Century Gothic', 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
-  font-size: 14px;
-  line-height: 22px;
-  text-transform: uppercase;
-  text-align: left;
-
-}
-#cssmenu > ul {
-  color: #dddddd;
-  text-transform: uppercase;
-  display: block;
-  padding: 3px;
-  background: #151515;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  letter-spacing: 1px;
-  font-size: 14px;
- border-radius:5px;
+/** Home Page **/
+body {
+	padding-top: 0;
+	padding-bottom: 40px;
+	background-color: #f5f5f5;
 }
 
-}
-#cssmenu > ul li#responsive-tab {
-  display: none;
-  /* Hide for large screens */
 
+@media (min-width: 979px){
+    body {
+            padding-top: 60px;
+    }
 }
-#cssmenu > ul li {
-  display: inline-block;
-  *display: inline;
-  zoom: 1;
 
+
+/** Login Page **/
+#login {
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
-#cssmenu > ul li.right {
-  float: right;
+
+#login .form-signin {
+    max-width: 300px;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
-#cssmenu > ul li.has-sub {
-  position: relative;
+#login .form-signin .form-signin-heading,
+#login .form-signin .checkbox {
+    margin-bottom: 10px;
 }
-#cssmenu > ul li.has-sub:hover ul {
-  display: block;
+#login .form-signin input[type="text"],
+#login .form-signin input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
 }
-#cssmenu > ul li.has-sub ul {
-  display: none;
-  width: 250px;
+
+/** 2 level sub menu **/
+.dropdown-menu-with-subs .sub-menu {
+  left: 100%;
   position: absolute;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  background: #ffffff;
-  border: 1px solid #ece6e8;
-  border-bottom: 3px solid #d9ced2;
-  border-top: 0 none;
+  top: 0;
+  visibility: hidden;
+  margin-top: -1px;
 }
-#cssmenu > ul li.has-sub ul li {
+
+.dropdown-menu-with-subs li:hover .sub-menu {
+  visibility: visible;
   display: block;
 }
 
-#cssmenu > ul li a {
+.navbar .sub-menu:before {
+  border-bottom: 7px solid transparent;
+  border-left: none;
+  border-right: 7px solid rgba(0, 0, 0, 0.2);
+  border-top: 7px solid transparent;
+  left: -7px;
+  top: 10px;
+}
+.navbar .sub-menu:after {
+  border-top: 6px solid transparent;
+  border-left: none;
+  border-right: 6px solid #fff;
+  border-bottom: 6px solid transparent;
+  left: 10px;
+  top: 11px;
+  left: -6px;
+}
+
+/** Global **/
+#content {
+  margin-left:0px;
+}
+.hide-sidebar, .show-sidebar {
+  cursor: pointer;
+}
+.padd-bottom {
+  margin-bottom: 5px;
+}
+.breadcrumb {
+	margin: 0 0 0px;
+	padding: 10px 0px;
+	background-color: transparent;
+}
+
+.block {
+	border: 1px solid #ccc;
+	background: white;
+	margin: 1em 0em;
+	border-top: none;
+}
+
+.block-content {
+	margin: 1em;
+	min-height: .25em;
+}
+
+.block-header {
+	margin-bottom: 0px;
+	border-right: none;
+	border-left: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+.block-header div {
+	padding-top: 10px;
+}
+
+.easyPieChart {
+	margin: 0px auto;
+}
+
+.chart-bottom-heading {
+	margin-top: 5px;
+	text-align: center;
+}
+
+/** Side Bar **/
+.bs-docs-sidenav {
+  max-width: 228px;
+  margin: 30px 0 0;
+  padding: 0;
+  background-color: #fff;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+     -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+          box-shadow: 0 1px 4px rgba(0,0,0,.065);
+}
+.bs-docs-sidenav > li > a {
   display: block;
-  padding: 12px 24px 11px 24px;
-  text-decoration: none;
-  color: #747474;
-  text-shadow: 1px 1px 0px #fff;
+  width: 190px \9;
+  margin: 0 0 -1px;
+  padding: 8px 14px;
+  border: 1px solid #e5e5e5;
 }
-#cssmenu > ul li a.active,
-#cssmenu > ul li a:hover {
- background: #222222;
-  color: #ffffff;
-  
+.bs-docs-sidenav > li:first-child > a {
+  -webkit-border-radius: 6px 6px 0 0;
+     -moz-border-radius: 6px 6px 0 0;
+          border-radius: 6px 6px 0 0;
 }
-@media (max-width: 600px) {
-  #cssmenu > ul {
-    width: 100%;
-  }
-  #cssmenu > ul li#responsive-tab {
-    display: block;
-  }
-  
-  #cssmenu > ul li#responsive-tab a:hover {
-    background-color: #546361;
-    background-position: 95% 135%;
-  }
-  #cssmenu > ul li {
-    display: none;
-  }
-  #cssmenu > ul li.right {
-    float: none;
-  }
-  #cssmenu > ul li.has-sub {
-    position: relative;
-  }
-  #cssmenu > ul li.has-sub ul {
-    display: block;
-    position: static;
-    width: 100%;
-    background: #ffffff;
-    border: 0 none;
-  }
-  #cssmenu > ul li.has-sub ul li {
-    display: block !important;
-  }
-  #cssmenu > ul li.has-sub ul li a span {
-    display: block;
-    padding-left: 24px;
-  }
-  #cssmenu > ul li.has-sub > a {
-    background-image: none;
-  }
+.bs-docs-sidenav > li:last-child > a {
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
 }
-/* Make sure they show even if hidden in mobile view by JS */
-@media (min-width: 600px) {
-  #cssmenu > ul > li.collapsed {
-    display: inline-block !important;
-    *display: inline;
-    zoom: 1;
-  }
-  #cssmenu > ul ul li.collapsed {
-    display: block !important;
-  }
+.bs-docs-sidenav > .active > a {
+  position: relative;
+  z-index: 2;
+  padding: 9px 15px;
+  border: 0;
+  text-shadow: 0 1px 0 rgba(0,0,0,.15);
+  -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+     -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+          box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+}
+/* Chevrons */
+.bs-docs-sidenav .icon-chevron-right {
+  float: right;
+  margin-top: 2px;
+  margin-right: -6px;
+  opacity: .25;
+}
+.bs-docs-sidenav > li > a:hover {
+  background-color: #f5f5f5;
+}
+.bs-docs-sidenav a:hover .icon-chevron-right {
+  opacity: .5;
+}
+.bs-docs-sidenav .active .icon-chevron-right,
+.bs-docs-sidenav .active a:hover .icon-chevron-right {
+  opacity: 1;
+}
+.bs-docs-sidenav.affix {
+  top: 40px;
+}
+.bs-docs-sidenav.affix-bottom {
+  position: absolute;
+  top: auto;
+  bottom: 270px;
+}
+
+/* Icons
+------------------------- */
+.the-icons {
+  margin-left: 0;
+  list-style: none;
+}
+.the-icons li {
+  float: left;
+  width: 25%;
+  line-height: 25px;
+}
+.the-icons i:hover {
+  background-color: rgba(255,0,0,.25);
 }

@@ -1,4 +1,4 @@
-<%@ include file="../../../cabecalho.jspf" %>
+<%@ include file="../../../cabecalho.jsp" %>
 
 <form action="<c:url value="/usuarios"/>" method="POST">
 

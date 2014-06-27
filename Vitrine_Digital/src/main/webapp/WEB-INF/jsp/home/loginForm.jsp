@@ -1,5 +1,5 @@
 
-<%@ include file="../../../cabecalho.jspf" %>
+<%@ include file="../../../cabecalho.jsp" %>
 <body>
 <div class="container">
 <form action="" method="post" class="basic-grey">
