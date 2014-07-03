@@ -4,7 +4,11 @@ import java.util.List;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.modelo.Estabelecimento;
+import br.com.modelo.ImagemProduto;
+import br.com.modelo.Produto;
 import br.com.modelo.Usuario;
+import br.com.vitrinedigital.dao.ImagemProdutoDao;
+import br.com.vitrinedigital.dao.ProdutoDao;
 import br.com.vitrinedigital.dao.UsuarioDao;
 import br.com.vitrinedigital.dao.EstabelecimentoDao;
 import br.com.vitrinedigital.interceptor.UsuarioWeb;
@@ -15,11 +19,15 @@ public class VDigitalFacade {
 	private final UsuarioDao usrDao;
 	private final UsuarioWeb userinfo;
 	private final EstabelecimentoDao estabDao;
+	private final ProdutoDao prodDao;
+	private final ImagemProdutoDao imgprofDao;
 
-	public VDigitalFacade(UsuarioDao admDao,EstabelecimentoDao estabDao,UsuarioWeb userinfo) {
+	public VDigitalFacade(UsuarioDao admDao,ImagemProdutoDao imgprofDao,EstabelecimentoDao estabDao,ProdutoDao prodDao,UsuarioWeb userinfo) {
 		this.usrDao = admDao;
 		this.userinfo = userinfo;
 		this.estabDao =estabDao;
+		this.prodDao = prodDao;
+		this.imgprofDao = imgprofDao;
 
 	}
 
@@ -68,6 +76,39 @@ public class VDigitalFacade {
 	}
 	public List<Estabelecimento> listaEstabelecimento(){
 		return estabDao.listarTudo();
+	}
+	
+	
+	
+	//Medotos Produtos
+	
+	public void cadastrarProduto(Produto produto) throws VDigitalException {
+		prodDao.salvar(produto);
+	}
+	public Produto carregarProduto(int id){
+		return prodDao.carregar(id);
+	}
+	public void deletarProduto(Produto produto){
+		prodDao.deletar(produto);
+	}
+	public List<Produto> listaProduto(){
+		return prodDao.listarTudo();
+	}
+	
+	
+	// Metodos ImagemProduto
+	
+	public void cadastrarImgProd(ImagemProduto produto) throws VDigitalException {
+		imgprofDao.salvar(produto);
+	}
+	public ImagemProduto carregarImgProd(int id){
+		return imgprofDao.carregar(id);
+	}
+	public void deletarImgProd(ImagemProduto produto){
+		imgprofDao.deletar(produto);
+	}
+	public List<ImagemProduto> listaImgProd(Produto produto){
+		return imgprofDao.listaImag(produto);
 	}
 
 	
