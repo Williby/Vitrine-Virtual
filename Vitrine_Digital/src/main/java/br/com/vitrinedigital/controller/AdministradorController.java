@@ -64,7 +64,7 @@ public class AdministradorController {
 		//Metodo que retorna uma lista de Estabelecimento!!!
 
 		List<Usuario> listusuario = facade.listaUsuario();
-		result.use(Results.json()).from(listusuario).recursive().serialize();
+		//	result.use(Results.json()).from(listusuario).recursive().serialize();
 	}
 	
 	

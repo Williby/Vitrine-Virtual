@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
@@ -32,11 +33,11 @@ public class ProdutoController {
 		
 	}
 	
-	@Get("/produtos/novo")
+	@Path("/produtos/novo")
 	public void formulario(){}
 	
 	@Get("/produtos/{id}")
-	public Produto editar(int cnpj){return null;}
+	public Produto editar(int id){return null;}
 	
 	@Put("/produtos/{produtos.id}")
 	public void alterar(){}
@@ -63,8 +64,8 @@ public class ProdutoController {
 	
 	@Get("/produtos")
 	public void lista(){
-		List<Produto> listProd = facade.listaProduto();
-		result.use(Results.json()).from(listProd).serialize();
+		//List<Produto> listProd = facade.listaProduto();
+		//result.use(Results.json()).from(listProd).serialize();
 	}
 	
 	

@@ -37,10 +37,12 @@ public class EstabelecimentoController {
 	@Get("/estabelecimentos/novo")
 	public void formulario(){}
 	
+	
+	
 	@Get("/estabelecimentos/{cnpj}")
 	public Estabelecimento editar(int cnpj){return null;}
 	
-	@Put("/estabelecimentos/{estabelecimento.cnpj}")
+	@Put("/estabelecimentos/{cnpj}")
 	public void alterar(){}
 	
 	@Post("/estabelecimentos")
@@ -67,7 +69,7 @@ public class EstabelecimentoController {
 	@Get("/estabelecimentos")
 	public void lista(){
 		List<Estabelecimento> listestab = facade.listaEstabelecimento();
-		result.use(Results.json()).from(listestab).serialize();
+		//result.use(Results.json()).from(listestab).serialize();
 	}
 	
 	

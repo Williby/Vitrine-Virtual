@@ -3,25 +3,29 @@
               
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Tabela Estabelecimentos</div>
+                                <div class="muted pull-left">Tabela Usuários</div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
                     <table class="table table-bordered">
                           <thead>
                             <tr>
-                              <th>Nome</th>                             
+                              <th>Nome</th>
+                              <th>Login</th>                              
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td>Churrascaria </td>                            
+                              <td>Jabes Bonfim</td>
+                              <td>Jbonfim</td>
                             </tr>
                             <tr>
-                              <td>Xing Ling</td>                             
+                              <td>Laís Soares</td>
+                              <td>Lsoares</td>
                             </tr>
                             <tr>
-                              <td>Farmacia</td>                              
+                              <td>Rivaldo Junior</td>
+                              <td>RJunior</td>
                             </tr>
                           </tbody>
                         </table>
@@ -30,4 +34,3 @@
                         </div>
 
                     </div>
-

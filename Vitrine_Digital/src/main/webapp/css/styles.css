@@ -1,4 +1,85 @@
 /** Home Page **/
+/*Janelas Modal*/
+
+.modal-area{
+
+    background: #434343;
+
+    border: 1px solid #434343;
+
+    min-width: 200px;
+
+    position: absolute;
+
+    -moz-border-radius: 5px;
+
+    -webkit-border-radius: 5px;
+
+    -khtml-border-radius: 5px;
+
+    border-radius: 5px;
+
+    -moz-box-shadow: 0 4px 18px #222;
+
+    -webkit-box-shadow: 0 4px 18px #222;
+    -khtml-box-shadow: 0 4px 18px #222;
+
+    box-shadow: 0 4px 18px #222;
+
+}
+
+.modal-titulo{
+
+    background: #434343;
+
+    border-bottom: 1px solid #222;
+
+    color: #FFF;
+
+    font-weight: bold;
+
+    padding: 5px 30px 5px 10px;
+
+    text-shadow: 1px 1px 1px #000;
+
+    -moz-border-radius: 3px 3px 0 0;
+
+    -webkit-border-radius: 3px 3px 0 0;
+
+    -khtml-border-radius: 3px 3px 0 0;
+
+    border-radius: 3px 3px 0 0;
+
+}
+
+.modal-conteudo{
+
+    background: #FFF;
+
+    padding: 10px;
+
+}
+
+.modal-fecha{
+
+    color:#FFFFFF;
+
+    cursor: pointer;
+
+    font-size:21px;
+
+    font-weight:bold;
+
+    position:absolute;
+
+    right:8px;
+
+    top: 3px;
+
+    text-shadow: 1px 1px 1px #000;
+
+}
+
 body {
 	padding-top: 0;
 	padding-bottom: 40px;
@@ -78,7 +159,7 @@ body {
 
 /** Global **/
 #content {
-  margin-left:0px;
+  margin-left:350px;
 }
 .hide-sidebar, .show-sidebar {
   cursor: pointer;

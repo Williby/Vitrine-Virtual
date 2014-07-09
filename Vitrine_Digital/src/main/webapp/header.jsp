@@ -5,7 +5,7 @@
 <html class="no-js">
     
     <head>
-        <title>Admin Home Page</title>
+        <title>Estabelecimento Home Page</title>
         
 		<meta charset="UTF-8">
         <!-- <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"> 
@@ -23,18 +23,18 @@
          
     
     <body>
-    <div class="navbar navbar-fixed-top cabecalho">
+    <div class="navbar header navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Vitrine Digital - Administração</a>
+                    <a class="brand" href="#">Vitrine Digital - Estabelecimento</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> JBonfim <i class="caret"></i>
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Farmacia<i class="caret"></i>
 
                                 </a>
                                 <ul class="dropdown-menu">
@@ -51,15 +51,15 @@
                         <ul class="nav">
                            
                             <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Estabelecimento <i class="caret"></i>
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Produtos <i class="caret"></i>
 
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="<c:url value="/estabelecimentos"/>">Listar</a>
+                                        <a href="<c:url value="/produtos"/>">Listar</a>
                                     </li>
                                     <li>
-                                        <a tabindex="-1" href="<c:url value="/estabelecimentos/novo"/>">Cadastrar</a>
+                                        <a tabindex="-1" href="<c:url value="/produtos/novo"/>">Cadastrar</a>
                                         
                                     </li>
                                     <li>
@@ -68,22 +68,7 @@
                                     
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Usuários <i class="caret"></i>
-
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="<c:url value="/usuarios"/>">Lista de Usuários</a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="#">Pesquisar</a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="<c:url value="/usuarios/novo"/>">Cadastrar</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            
                         </ul>
                     </div>
                     
@@ -107,4 +92,3 @@
         </script>
   
 
-</html>
