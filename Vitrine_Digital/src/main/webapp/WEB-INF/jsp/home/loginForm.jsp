@@ -4,7 +4,7 @@
 
 <div class="auth-form" id="login">
 
-    <form accept-charset="UTF-8" action="" method="post">
+    <form action="<c:url value="/login"/>" name="loginForm" method="POST">
 
     <div class="auth-form-header">
         <h1 class="dados">Forneça seus dados:</h1>
@@ -14,13 +14,13 @@
         <i class="icon-user"></i>
           Login
         </label>
-        <input autocapitalize="off" autocorrect="off" autofocus="autofocus" class="input-block" id="login_field" name="login" tabindex="1" type="text" />
+        <input autocapitalize="off" autocorrect="off" autofocus="autofocus" class="input-block" id="login_field" name="usuario.login" tabindex="1" type="text" />
 
         <label for="password">
         <i class="icon-lock"></i>
           Senha
         </label>
-        <input class="input-block" id="password" name="password" tabindex="2" type="password" />
+        <input class="input-block" id="password" name="usuario.senha" tabindex="2" type="password" />
 
         <input class="btn" name="commit" tabindex="3" type="submit" value="Entrar" />
       </div>

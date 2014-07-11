@@ -23,6 +23,8 @@
          
     
     <body>
+   <c:if test="${usuarioWeb.logado}">
+								
     <div class="navbar header navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
@@ -34,16 +36,17 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Farmacia<i class="caret"></i>
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> ${usuarioWeb.nome } <i class="caret"></i>
 
                                 </a>
+                                
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a tabindex="-1" href="#">Perfil</a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a tabindex="-1" href="login.html">Logout</a>
+                                        <a tabindex="-1" href="<c:url value="/logout"/>">Logout</a>
                                     </li>
                                 </ul>
                             </li>
@@ -75,6 +78,7 @@
                 </div>
             </div>
         </div>
+     </c:if><!-- Final da consulta -->
         <script type="text/javascript" src="<c:url value="/js/jquery-1.9.1.min.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/js/bootstrap.min.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/js/easypiechart/jquery.easy-pie-chart.js"/>"></script>

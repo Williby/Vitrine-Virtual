@@ -31,12 +31,13 @@ public class VDigitalFacade {
 
 	}
 
-	public void logarUsr(Usuario adm) throws VDigitalException {
+	public Usuario logarUsr(Usuario adm) throws VDigitalException {
 		Usuario ad = usrDao.carregar(adm);
 		if (ad == null) {
 			throw new VDigitalException("Login ou senha invalidos");
 		}
 		this.userinfo.login(ad);
+		return ad;
 	}
 
 	public void cadastrarUsr(Usuario usr) throws VDigitalException {
@@ -45,8 +46,16 @@ public class VDigitalFacade {
 		}
 		usrDao.salvar(usr);
 	}
-	public void deletarUsr(Usuario usr){
-		usrDao.deletar(usr);
+	public void deletarUsr(Usuario usr) throws VDigitalException{
+		System.out.println("Usuario é Null?? "+carregarEstabelecimento(usr));
+		if(carregarEstabelecimento(usr)==null){
+			usrDao.deletar(usr);
+			return;
+		}
+		throw new VDigitalException("Este Usuario estar cadastrado em um Estabelecimento, ele nao Pode ser excluido.");
+
+		
+		
 	}
 	public Usuario carregarUsr(int id){
 		return usrDao.carregar(id);
@@ -56,11 +65,17 @@ public class VDigitalFacade {
 		// TODO Auto-generated method stub
 		return usrDao.listarTudo();
 	}
+	public void update(Usuario usr){
+		usrDao.update(usr);
+	}
 	
 	
 	// Metodos do Estabelecimento
 	public void existeEstabelecimento(){
 		
+	}
+	private Estabelecimento carregarEstabelecimento(Usuario usr){
+		return estabDao.carregar(usr);
 	}
 	public void cadastrarEstabelecimento(Estabelecimento estab) throws VDigitalException {
 		if (estabDao.carregar(estab) != null) {
@@ -68,11 +83,14 @@ public class VDigitalFacade {
 		}
 		estabDao.salvar(estab);
 	}
-	public Estabelecimento carregarEstab(int id){
-		return estabDao.carregar(id);
+	public Estabelecimento carregarEstab(String cnpj){
+		return estabDao.carregar(cnpj);
 	}
 	public void deletarEstabelecimento(Estabelecimento estab){
 		estabDao.deletar(estab);
+	}
+	public void update(Estabelecimento est){
+		estabDao.update(est);
 	}
 	public List<Estabelecimento> listaEstabelecimento(){
 		return estabDao.listarTudo();
@@ -89,10 +107,14 @@ public class VDigitalFacade {
 		return prodDao.carregar(id);
 	}
 	public void deletarProduto(Produto produto){
+		imgprofDao.deletar(produto);
 		prodDao.deletar(produto);
 	}
 	public List<Produto> listaProduto(){
 		return prodDao.listarTudo();
+	}
+	public void update(Produto prod){
+		prodDao.update(prod);
 	}
 	
 	

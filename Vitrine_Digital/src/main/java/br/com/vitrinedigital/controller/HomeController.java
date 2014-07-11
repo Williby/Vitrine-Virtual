@@ -24,6 +24,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.com.modelo.Usuario;
+import br.com.vitrinedigital.facade.VDigitalException;
 import br.com.vitrinedigital.facade.VDigitalFacade;
 import br.com.vitrinedigital.interceptor.UsuarioWeb;
 
@@ -59,22 +60,24 @@ public class HomeController {
 	
 	@Post("/login")
 	public void login(Usuario usuario){
-		
+		Usuario usr = null;
 		try{
-			vdfacade.logarUsr(usuario);
-		}catch(Exception e){
+			usr = vdfacade.logarUsr(usuario);
+			//result.redirectTo(AdministradorController.class).home();
+		}catch(VDigitalException e){
 			validator.add(new ValidationMessage(e.getMessage(), "usuario"));
+			validator.onErrorUsePageOf(this).loginForm();
 		}
-		validator.onErrorUsePageOf(this).loginForm();
-		redirecionar(usuario);
+		redirecionar(usr);
 		//this.userinfo.login(adm);
 	
 	}
 	private void redirecionar(Usuario usuario){
-		if(usuario.getNivel()=="1"){
+		System.out.println("OK, Nivel: "+usuario.getNivel());
+		if(usuario.getNivel().equals("1")){
 			result.redirectTo(AdministradorController.class).home();
 		}
-		else if(usuario.getNivel()=="2"){
+		else if(usuario.getNivel().equals("2")){
 			result.redirectTo(EstabelecimentoController.class).home();
 		}
 	}

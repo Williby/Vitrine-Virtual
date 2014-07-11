@@ -11,22 +11,30 @@
                           <thead>
                             <tr>
                               <th>Nome</th>
-                              <th>Login</th>                              
+                              <th>Login</th>
+                              <th>Nivel Acesso</th>
+                                                            
                             </tr>
                           </thead>
                           <tbody>
+                          <c:forEach items="${usuarios}" var="usuarios">
                             <tr>
-                              <td>Jabes Bonfim</td>
-                              <td>Jbonfim</td>
+                              <td>${usuarios.nome}</td>
+                              <td>${usuarios.login}</td>
+                              <td>${usuarios.nivel}</td>
+                              <th>
+                              	<form action="<c:url value="/usuarios/${usuarios.id}"/>" method="POST">
+											
+											<a><button name="_method" value="DELETE"><i class="icon-remove" ></i></button></a>
+										</form>
+		                              	
+		                              <a href="<c:url value="/usuarios/${usuarios.id}"/>"><button ><i class="icon-edit"></i></button> </a>
+                              	
+                              
+                              </th>
+                              
                             </tr>
-                            <tr>
-                              <td>Laís Soares</td>
-                              <td>Lsoares</td>
-                            </tr>
-                            <tr>
-                              <td>Rivaldo Junior</td>
-                              <td>RJunior</td>
-                            </tr>
+                           </c:forEach>
                           </tbody>
                         </table>
                                 </div>

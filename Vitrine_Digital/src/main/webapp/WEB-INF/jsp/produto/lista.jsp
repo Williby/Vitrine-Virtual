@@ -1,4 +1,13 @@
 <%@ include file="../../../header.jsp" %>
+
+<script type="text/javascript">
+	function editar(){
+		alert("redirecionar produto");
+	}
+<!--
+
+//-->
+</script>
 <div class="row-fluid">
               
                         <div class="block">
@@ -12,27 +21,27 @@
                             <tr>
                               <th>Nome</th>
                               <th>Preço</th>
-                              <th>Categoria</th>                                                          
+                              <th>Categoria</th>
+                                                                                      
                             </tr>
                             
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>Blusa</td>
-                              <th>20.00</th>
-                              <th>Roupas</th>
-                                                        
-                            </tr>
-                            <tr>
-                              <td>Tênis</td>
-                              <th>100.00</th>
-                              <th>Calçados</th>                             
-                            </tr>
-                            <tr>
-                              <td>Boné</td>
-                              <th>50.00</th>
-                              <th>Acessórios</th>                              
-                            </tr>
+                          	<c:forEach items="${produtos}" var="produtos">
+	                            <tr>
+	                              <td>${produtos.nome}</td>
+	                              <th>${produtos.preco}</th>
+	                              <th>${produtos.categoria}</th>
+	                              <th>
+	                              		<form action="<c:url value="/produtos/${produtos.id}"/>" method="POST">
+											
+											<a><button name="_method" value="DELETE"><i class="icon-remove" ></i></button></a>
+										</form>
+		                              	
+		                              <a href="<c:url value="/produtos/${produtos.id}"/>"><button ><i class="icon-edit"></i></button> </a>
+	                              </th>                          
+	                            </tr>
+                            </c:forEach>
                           </tbody>
                         </table>
                                 </div>

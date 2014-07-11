@@ -16,6 +16,14 @@ public class Produto {
 	private String nome;
 	private double preco;
 	private String descricao;
+	private String categoria;
+	
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 	
 	public double getPreco() {
 		return preco;

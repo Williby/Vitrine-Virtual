@@ -19,10 +19,36 @@
         <link href="<c:url value="/css/bootstrap-responsive.min.css"/>" rel="stylesheet" type="text/css" media="screen" />
         <link href="<c:url value="/css/styles.css"/>" rel="stylesheet" type="text/css" media="screen" />
         
-        <style type="text/css">.row-fluid{width:80%;*zoom:1;margin-left: 140px;}</style>
-         
+        <style type="text/css">
+        	.row-fluid{width:80%;*zoom:1;margin-left: 140px;}
+        	#errors {
+				background-color: red;	
+			}
+			
+			
+			#errors li {
+				width: 750px;
+				color: white;
+				text-align: left;
+				list-style: none;
+				margin: 0 auto;
+			}
+        </style>
+       
+      </head>
     
     <body>
+    <c:if test="${not empty errors}">
+		<div id="errors">
+			<ul>
+				<c:forEach items="${errors }" var="error">
+					<li>${error.category } - ${error.message }</li>
+				</c:forEach>
+			</ul>
+		</div>
+	</c:if>
+	
+    <c:if test="${usuarioWeb.logado}">
     <div class="navbar navbar-fixed-top cabecalho">
             <div class="navbar-inner">
                 <div class="container-fluid">
@@ -34,7 +60,8 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> JBonfim <i class="caret"></i>
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> ${usuarioWeb.nome} <i class="caret"></i>
+ <i class="caret"></i>
 
                                 </a>
                                 <ul class="dropdown-menu">
@@ -43,7 +70,7 @@
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a tabindex="-1" href="login.html">Logout</a>
+                                        <a tabindex="-1" href="<c:url value="/logout"/>">Logout</a>
                                     </li>
                                 </ul>
                             </li>
@@ -59,7 +86,7 @@
                                         <a href="<c:url value="/estabelecimentos"/>">Listar</a>
                                     </li>
                                     <li>
-                                        <a tabindex="-1" href="<c:url value="/estabelecimentos/novo"/>">Cadastrar</a>
+                                        <a tabindex="-1" href="<c:url value="/estabelecimentos/novo/formulario"/>">Cadastrar</a>
                                         
                                     </li>
                                     <li>
@@ -90,6 +117,7 @@
                 </div>
             </div>
         </div>
+        </c:if>
         <script type="text/javascript" src="<c:url value="/js/jquery-1.9.1.min.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/js/bootstrap.min.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/js/easypiechart/jquery.easy-pie-chart.js"/>"></script>

@@ -20,9 +20,9 @@ public class ImagemProdutoDao {
 		this.session = session;
 	}
 	public void salvar(ImagemProduto imgprod){
-		Transaction tx =  session.beginTransaction();
+		//Transaction tx =  session.beginTransaction();
 		session.save(imgprod);
-		tx.commit();
+		//tx.commit();
 		
 	}
 	public ImagemProduto carregar(int id){
@@ -30,6 +30,18 @@ public class ImagemProdutoDao {
 	}
 	public void deletar(ImagemProduto imgprod){
 		this.session.delete(imgprod);
+	}
+	public void deletar(Produto produto){
+		List<ImagemProduto> list = listaImag(produto);
+		System.out.println("Exist produto?? "+list);
+		if(list!=null){
+			for(ImagemProduto imgp:list){
+				deletar(imgp);
+			}
+			
+		}
+		
+		
 	}
 	public List<ImagemProduto> listaImag(Produto  produto){
 //		String hql = "from User u where u.login = :login";

@@ -10,19 +10,20 @@
                     <table class="table table-bordered">
                           <thead>
                             <tr>
-                              <th>Nome</th>                             
+                              <th>Nome</th>
+                                                           
                             </tr>
                           </thead>
                           <tbody>
+                          <c:forEach items="${estabelecimentos}" var="estabelecimentos">
                             <tr>
-                              <td>Churrascaria </td>                            
+                              <td>${estabelecimentos.nome}</td>
+                              <th>
+                              	<a href="<c:url value="/estabelecimentos/${estabelecimentos.cnpj}"/>"><button ><i class="icon-edit"></i></button> </a>
+                              
+                              </th>                            
                             </tr>
-                            <tr>
-                              <td>Xing Ling</td>                             
-                            </tr>
-                            <tr>
-                              <td>Farmacia</td>                              
-                            </tr>
+                           </c:forEach>
                           </tbody>
                         </table>
                                 </div>

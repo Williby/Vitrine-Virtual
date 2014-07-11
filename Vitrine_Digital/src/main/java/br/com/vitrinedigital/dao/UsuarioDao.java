@@ -30,6 +30,9 @@ public class UsuarioDao {
 	public Usuario carregar(int id) {
 		return (Usuario) this.session.load(Usuario.class, id);
 	}
+	public void update(Usuario usr){
+		this.session.update(usr);
+	}
 	public void salvar(Usuario usr) {
 		//Transaction tx =  session.beginTransaction();
 		session.save(usr);

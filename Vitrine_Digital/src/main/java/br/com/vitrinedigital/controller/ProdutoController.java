@@ -1,5 +1,6 @@
 package br.com.vitrinedigital.controller;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
 import br.com.caelum.vraptor.Delete;
@@ -17,6 +18,7 @@ import br.com.modelo.Produto;
 import br.com.modelo.Usuario;
 import br.com.vitrinedigital.facade.VDigitalException;
 import br.com.vitrinedigital.facade.VDigitalFacade;
+import br.com.vitrinedigital.interceptor.Restrito;
 
 @Resource
 public class ProdutoController {
@@ -33,17 +35,26 @@ public class ProdutoController {
 		
 	}
 	
+	@Restrito
 	@Path("/produtos/novo")
 	public void formulario(){}
 	
+	@Restrito
 	@Get("/produtos/{id}")
-	public Produto editar(int id){return null;}
+	public Produto editar(int id){
+		return facade.carregarProduto(id);
+	}
 	
-	@Put("/produtos/{produtos.id}")
-	public void alterar(){}
+	@Restrito
+	@Put("/produtos/{produto.id}")
+	public void alterar(Produto produto){
+		facade.update(produto);
+		result.redirectTo(this).lista();
+	}
 	
+	@Restrito
 	@Post("/produtos")
-	public void adciona(final Produto produto,int id){
+	public void adciona(final Produto produto){
 		
 		//Metodo para Cadastrar um Novo Produto!!!
 		try{
@@ -56,15 +67,18 @@ public class ProdutoController {
 		 this.result.redirectTo(this).lista();
 	}
 	
+	@Restrito
 	@Delete("/produtos/{id}")
 	public void remove(int id){
 		facade.deletarProduto(facade.carregarProduto(id));
+		result.redirectTo(this).lista();
 	}
 	
-	
+	@Restrito
 	@Get("/produtos")
 	public void lista(){
-		//List<Produto> listProd = facade.listaProduto();
+		List<Produto> produtos = facade.listaProduto();
+		result.include("produtos", produtos);
 		//result.use(Results.json()).from(listProd).serialize();
 	}
 	

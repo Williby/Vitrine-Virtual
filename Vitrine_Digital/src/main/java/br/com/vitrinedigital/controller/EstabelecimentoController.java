@@ -16,6 +16,7 @@ import br.com.modelo.Estabelecimento;
 import br.com.modelo.Usuario;
 import br.com.vitrinedigital.facade.VDigitalException;
 import br.com.vitrinedigital.facade.VDigitalFacade;
+import br.com.vitrinedigital.interceptor.Restrito;
 
 @Resource
 public class EstabelecimentoController {
@@ -31,20 +32,30 @@ public class EstabelecimentoController {
 		this.result = result;
 		
 	}
-	
+	@Restrito
 	public void home(){}
 	
-	@Get("/estabelecimentos/novo")
+	@Restrito
+	@Get("/estabelecimentos/novo/formulario")
 	public void formulario(){}
 	
 	
-	
+	@Restrito
 	@Get("/estabelecimentos/{cnpj}")
-	public Estabelecimento editar(int cnpj){return null;}
+	public Estabelecimento editar(String cnpj){
+		return facade.carregarEstab(cnpj);
+	}
 	
-	@Put("/estabelecimentos/{cnpj}")
-	public void alterar(){}
+	@Restrito
+	@Put("/estabelecimentos/{estabelecimento.cnpj}")
+	public void alterar(Estabelecimento estabelecimento,int id){
+		Usuario usr = facade.carregarUsr(id);
+		estabelecimento.setUsuario(usr);
+		facade.update(estabelecimento);
+		result.redirectTo(this).lista();
+	}
 	
+	@Restrito
 	@Post("/estabelecimentos")
 	public void adciona(final Estabelecimento estabelecimento,int id){
 		
@@ -60,15 +71,17 @@ public class EstabelecimentoController {
 		 this.result.redirectTo(this).lista();
 	}
 	
+	@Restrito
 	@Delete("/estabelecimentos/{cnpj}")
-	public void remove(int cnpj){
+	public void remove(String cnpj){
 		facade.deletarEstabelecimento(facade.carregarEstab(cnpj));
 	}
 	
-	
+	@Restrito
 	@Get("/estabelecimentos")
 	public void lista(){
-		List<Estabelecimento> listestab = facade.listaEstabelecimento();
+		List<Estabelecimento> estabelecimentos = facade.listaEstabelecimento();
+		result.include("estabelecimentos", estabelecimentos);
 		//result.use(Results.json()).from(listestab).serialize();
 	}
 	

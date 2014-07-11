@@ -17,13 +17,16 @@ public class ProdutoDao {
 	}
 	
 	public void salvar(Produto produto){
-		Transaction tx =  session.beginTransaction();
+		//Transaction tx =  session.beginTransaction();
 		session.save(produto);
-		tx.commit();
+		//tx.commit();
 		
 	}
 	public Produto carregar(int id){
 		return (Produto)this.session.load(Produto.class, id);
+	}
+	public void update(Produto prod){
+		this.session.update(prod);
 	}
 	
 	public void deletar(Produto produto) {
